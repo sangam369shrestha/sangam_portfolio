@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | AI, Business & Crypto Insights</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        .floating-shape {
+            position: absolute;
+            opacity: 0.15;
+            filter: blur(30px);
+            z-index: -1;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .blog-card-ai {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border-left: 4px solid #6366f1;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+        .blog-card-business {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(244, 114, 182, 0.1) 100%);
+            border-left: 4px solid #ec4899;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 85%, 0 15%);
+        }
+        .blog-card-crypto {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border-left: 4px solid #8b5cf6;
+            clip-path: polygon(0 15%, 15% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        .modal {
+            transition: all 0.3s ease;
+        }
+        .modal-content {
+            background: linear-gradient(135deg, rgba(30, 30, 40, 0.95) 0%, rgba(40, 40, 50, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .category-tag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Comet Lights */
+.comet {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  filter: blur(1px);
+  z-index: -2;
+  animation: comet-trail 40s linear infinite;
+}
+
+.comet::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(168, 85, 247, 0.1), 
+    currentColor 70%, 
+    rgba(168, 85, 247, 0));
+  transform-origin: left center;
+}
+
+/* Vertical comets */
+.comet.vertical {
+  height: 300px;
+  width: 1px;
+}
+
+.comet.vertical::before {
+  width: 1px;
+  height: 300px;
+  background: linear-gradient(180deg, 
+    rgba(168, 85, 247, 0.1), 
+    currentColor 70%, 
+    rgba(168, 85, 247, 0));
+}
+
+/* Color Variations */
+.comet.purple { color: rgba(168, 85, 247, 0.8); }
+.comet.pink { color: rgba(236, 72, 153, 0.8); }
+.comet.blue { color: rgba(99, 102, 241, 0.8); }
+
+/* Animations */
+@keyframes comet-trail {
+  0% {
+    transform: translate(-100px, -100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(100vw + 100px), 
+      calc(100vh + 100px)
+    );
+    opacity: 0;
+  }
+}
+
+.comet.diagonal {
+  animation: diagonal-trail 50s linear infinite;
+}
+
+@keyframes diagonal-trail {
+  0% {
+    transform: translate(-100px, -100px) rotate(45deg);
+  }
+  100% {
+    transform: translate(
+      calc(100vw + 100px), 
+      calc(100vh + 100px)
+    ) rotate(45deg);
+  }
+}
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <!-- Navbar will be injected here -->
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow container mx-auto px-6 py-12 md:py-20">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                Latest <span class="gradient-text">Insights</span>
+            </h1>
+            <p class="text-xl text-gray-400">
+                Cutting-edge updates on AI, Business, and Cryptocurrency
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+            <!-- Floating shapes background -->
+            <div class="floating-shape w-64 h-64 bg-purple-600 rounded-full -left-20 top-0 animate-float1"></div>
+            <div class="floating-shape w-48 h-48 bg-pink-600 rounded-full -right-20 bottom-0 animate-float2"></div>
+            <div class="floating-shape w-32 h-32 bg-indigo-600 rounded-lg top-1/3 left-1/4 animate-float3"></div>
+
+            <!-- AI Blog 1 -->
+            <div class="blog-card-ai p-6 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 relative overflow-hidden h-full flex flex-col">
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-purple-600 rounded-full opacity-10"></div>
+                <div class="category-tag bg-purple-600 text-white">AI</div>
+                <div class="relative z-10 flex-grow">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">The Rise of Autonomous AI Agents</h2>
+                    <p class="text-gray-400 mb-6 line-clamp-3">New developments in AI agent technology show systems that can independently complete complex tasks without human intervention, marking a significant leap toward artificial general intelligence.</p>
+                </div>
+                <button onclick="openModal('modal-ai1')" class="mt-auto px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 w-full">
+                    Read More
+                </button>
+            </div>
+
+            <!-- Business Blog 1 -->
+            <div class="blog-card-business p-6 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 relative overflow-hidden h-full flex flex-col">
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-pink-600 rounded-full opacity-10"></div>
+                <div class="category-tag bg-pink-600 text-white">Business</div>
+                <div class="relative z-10 flex-grow">
+                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Content Marketing in the AI Era</h2>
+                    <p class="text-gray-400 mb-6 line-clamp-3">Businesses with blogs see 55% more traffic, but AI is changing how we create content. Learn how to balance automation with authenticity in your content strategy.</p>
+                </div>
+                <button onclick="openModal('modal-business1')" class="mt-auto px-6 py-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-medium hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 w-full">
+                    Read More
+                </button>
+            </div>
+
+            <!-- Crypto Blog 1 -->
+            <div class="blog-card-crypto p-6 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 relative overflow-hidden h-full flex flex-col">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-indigo-600 rounded-full opacity-10"></div>
+                <div class="category-tag bg-indigo-600 text-white">Crypto</div>
+                <div class="relative z-10 flex-grow">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-coins text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Bitcoin Surpasses $100K: What's Next?</h2>
+                    <p class="text-gray-400 mb-6 line-clamp-3">With Bitcoin reaching new all-time highs, analysts debate whether this marks the beginning of a sustained bull market or a temporary peak before correction.</p>
+                </div>
+                <button onclick="openModal('modal-crypto1')" class="mt-auto px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 w-full">
+                    Read More
+                </button>
+            </div>
+
+            <!-- AI Blog 2 -->
+            <div class="blog-card-ai p-6 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 relative overflow-hidden h-full flex flex-col">
+                <div class="absolute -left-10 -top-10 w-40 h-40 bg-purple-600 rounded-full opacity-10"></div>
+                <div class="category-tag bg-purple-600 text-white">AI</div>
+                <div class="relative z-10 flex-grow">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Ethical AI: The New Business Imperative</h2>
+                    <p class="text-gray-400 mb-6 line-clamp-3">As AI systems become more powerful, companies face increasing pressure to implement ethical guidelines. Discover how leading organizations are approaching AI governance.</p>
+                </div>
+                <button onclick="openModal('modal-ai2')" class="mt-auto px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 w-full">
+                    Read More
+                </button>
+            </div>
+
+            <!-- Business Blog 2 -->
+            <div class="blog-card-business p-6 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 relative overflow-hidden h-full flex flex-col">
+                <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-pink-600 rounded-full opacity-10"></div>
+                <div class="category-tag bg-pink-600 text-white">Business</div>
+                <div class="relative z-10 flex-grow">
+                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Remote Work Revolution 2.0</h2>
+                    <p class="text-gray-400 mb-6 line-clamp-3">The next phase of remote work integrates AI assistants, VR collaboration spaces, and results-only work environments. How forward-thinking companies are adapting.</p>
+                </div>
+                <button onclick="openModal('modal-business2')" class="mt-auto px-6 py-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-medium hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 w-full">
+                    Read More
+                </button>
+            </div>
+
+            <!-- Crypto Blog 2 -->
+            <div class="blog-card-crypto p-6 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 relative overflow-hidden h-full flex flex-col">
+                <div class="absolute -left-10 -top-10 w-48 h-48 bg-indigo-600 rounded-full opacity-10"></div>
+                <div class="category-tag bg-indigo-600 text-white">Crypto</div>
+                <div class="relative z-10 flex-grow">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-wallet text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">DeFi Summer 2025: New Trends</h2>
+                    <p class="text-gray-400 mb-6 line-clamp-3">Decentralized finance continues to evolve with AI-powered yield optimizers, cross-chain interoperability, and institutional-grade security protocols reshaping the landscape.</p>
+                </div>
+                <button onclick="openModal('modal-crypto2')" class="mt-auto px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 w-full">
+                    Read More
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- AI Blog 1 Modal -->
+    <div id="modal-ai1" class="modal fixed inset-0 bg-gray-900/90 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="modal-content max-w-2xl w-full rounded-xl border border-gray-800 overflow-hidden">
+            <div class="p-1 bg-gradient-to-r from-purple-600 to-pink-600">
+                <div class="bg-gray-900 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm mb-2 inline-block">AI</span>
+                            <h3 class="text-2xl font-bold mb-2">The Rise of Autonomous AI Agents</h3>
+                            <p class="text-gray-400 text-sm">Published June 2, 2025</p>
+                        </div>
+                        <button onclick="closeModal('modal-ai1')" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="prose prose-invert max-w-none">
+                        <p>The field of artificial intelligence has reached a pivotal moment with the emergence of autonomous AI agents capable of completing complex, multi-step tasks without human intervention. These systems represent a significant leap toward artificial general intelligence (AGI), with implications across every industry.</p>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-purple-400">Key Developments</h4>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>Self-improving algorithms:</strong> New architectures allow AI systems to analyze their own performance and modify their approaches in real-time :cite[3]</li>
+                            <li><strong>Goal-directed behavior:</strong> Agents can now pursue abstract objectives over extended timeframes while adapting to changing conditions</li>
+                            <li><strong>Multi-agent collaboration:</strong> Networks of specialized AIs coordinate to solve problems beyond any single system's capability</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-purple-400">Industry Impact</h4>
+                        <p>From The Neuron newsletter's latest analysis, we're seeing these agents deployed in:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>Scientific research:</strong> Automating hypothesis generation and experimental design</li>
+                            <li><strong>Software development:</strong> Managing entire codebases and deployment pipelines</li>
+                            <li><strong>Business operations:</strong> Handling complex decision-making across multiple departments</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-purple-400">Ethical Considerations</h4>
+                        <p>As highlighted in AI Ethics Brief, the rapid advancement of autonomous agents raises critical questions about:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Accountability for AI decisions and actions</li>
+                            <li>Alignment with human values over extended operations</li>
+                            <li>Potential for unintended emergent behaviors</li>
+                        </ul>
+                        
+                        <p class="mt-6">Leading researchers suggest we're entering a new era of human-AI collaboration rather than replacement, with these systems augmenting human capabilities rather than displacing them entirely.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Business Blog 1 Modal -->
+    <div id="modal-business1" class="modal fixed inset-0 bg-gray-900/90 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="modal-content max-w-2xl w-full rounded-xl border border-gray-800 overflow-hidden">
+            <div class="p-1 bg-gradient-to-r from-pink-600 to-purple-600">
+                <div class="bg-gray-900 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-sm mb-2 inline-block">Business</span>
+                            <h3 class="text-2xl font-bold mb-2">Content Marketing in the AI Era</h3>
+                            <p class="text-gray-400 text-sm">Published May 28, 2025</p>
+                        </div>
+                        <button onclick="closeModal('modal-business1')" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="prose prose-invert max-w-none">
+                        <p>Businesses with blogs see 55% more traffic than those without, but the landscape of content creation is undergoing a seismic shift with the advent of advanced AI writing tools :cite[5]. The challenge now lies in balancing automation with authenticity to maintain reader engagement and trust.</p>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-pink-400">The AI Content Revolution</h4>
+                        <p>According to recent data:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>83% of internet users regularly read blogs, making them a vital marketing channel</li>
+                            <li>AI-generated content now accounts for approximately 40% of all new business blog posts</li>
+                            <li>73% of readers only scan content rather than reading thoroughly :cite[5]</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-pink-400">Strategies for Success</h4>
+                        <p>From analyzing top business blogs like HubSpot and Neil Patel, we've identified key strategies:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>Human-AI collaboration:</strong> Use AI for research and drafting, but maintain human editorial oversight</li>
+                            <li><strong>Personalization at scale:</strong> Leverage AI to create multiple content variations for different audience segments</li>
+                            <li><strong>Visual storytelling:</strong> Complement text with AI-generated infographics and videos</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-pink-400">SEO Considerations</h4>
+                        <p>Google's algorithms continue to evolve in response to AI content:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Focus on E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)</li>
+                            <li>Prioritize long-tail keywords and question-based queries</li>
+                            <li>Regularly update older content to maintain relevance</li>
+                        </ul>
+                        
+                        <p class="mt-6">The most successful businesses are those using AI as a tool to enhance human creativity rather than replace it entirely, maintaining the unique voice and perspective that builds authentic connections with audiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crypto Blog 1 Modal -->
+    <div id="modal-crypto1" class="modal fixed inset-0 bg-gray-900/90 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="modal-content max-w-2xl w-full rounded-xl border border-gray-800 overflow-hidden">
+            <div class="p-1 bg-gradient-to-r from-indigo-600 to-purple-600">
+                <div class="bg-gray-900 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="px-3 py-1 bg-indigo-600/20 text-indigo-400 rounded-full text-sm mb-2 inline-block">Crypto</span>
+                            <h3 class="text-2xl font-bold mb-2">Bitcoin Surpasses $100K: What's Next?</h3>
+                            <p class="text-gray-400 text-sm">Published May 25, 2025</p>
+                        </div>
+                        <button onclick="closeModal('modal-crypto1')" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="prose prose-invert max-w-none">
+                        <p>Bitcoin has reached a historic milestone, surpassing $100,000 for the first time amid growing institutional adoption and macroeconomic uncertainty. This achievement comes exactly four years after its previous all-time high of $69,000 in November 2021, sparking debate among analysts about what comes next.</p>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-indigo-400">Market Analysis</h4>
+                        <p>Current market conditions show:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Bitcoin (BTC) trading at $105,237 with a market cap of $2.06 trillion :cite[1]</li>
+                            <li>Ethereum (ETH) at $2,611.77 following successful scaling upgrades</li>
+                            <li>Increased institutional participation with daily ETF inflows averaging $500M</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-indigo-400">Bull Case</h4>
+                        <p>Optimists point to several factors supporting continued growth:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Halving-induced supply shock taking full effect</li>
+                            <li>Growing adoption as a treasury reserve asset by corporations</li>
+                            <li>Macroeconomic uncertainty driving demand for hard assets</li>
+                            <li>Technical indicators suggesting this cycle may extend beyond historical patterns</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-indigo-400">Bear Considerations</h4>
+                        <p>Potential headwinds include:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Regulatory uncertainty in major markets</li>
+                            <li>Potential macroeconomic downturn affecting risk assets</li>
+                            <li>Technical resistance levels at previous cycle highs</li>
+                            <li>Increased competition from other store-of-value cryptocurrencies</li>
+                        </ul>
+                        
+                        <p class="mt-6">Most analysts agree we're in uncharted territory, with Bitcoin's maturation as an asset class potentially leading to reduced volatility and more stable growth patterns moving forward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Blog 2 Modal -->
+    <div id="modal-ai2" class="modal fixed inset-0 bg-gray-900/90 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="modal-content max-w-2xl w-full rounded-xl border border-gray-800 overflow-hidden">
+            <div class="p-1 bg-gradient-to-r from-purple-600 to-pink-600">
+                <div class="bg-gray-900 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm mb-2 inline-block">AI</span>
+                            <h3 class="text-2xl font-bold mb-2">Ethical AI: The New Business Imperative</h3>
+                            <p class="text-gray-400 text-sm">Published May 20, 2025</p>
+                        </div>
+                        <button onclick="closeModal('modal-ai2')" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="prose prose-invert max-w-none">
+                        <p>As artificial intelligence systems become more powerful and pervasive, companies across industries face growing pressure to implement robust ethical frameworks for AI development and deployment. What began as an academic discussion has become a critical business imperative with legal, financial, and reputational consequences.</p>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-purple-400">The Ethical AI Landscape</h4>
+                        <p>Key issues driving the conversation:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>Bias and fairness:</strong> Ensuring AI systems don't perpetuate or amplify societal biases</li>
+                            <li><strong>Transparency:</strong> Making AI decision-making processes understandable to users</li>
+                            <li><strong>Privacy:</strong> Protecting personal data used to train and operate AI systems</li>
+                            <li><strong>Accountability:</strong> Establishing clear responsibility for AI outcomes</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-purple-400">Industry Responses</h4>
+                        <p>Leading approaches from top AI blogs and newsletters:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>Google AI:</strong> Published comprehensive AI Principles and established an external advisory council :cite[4]</li>
+                            <li><strong>OpenAI:</strong> Implemented staged release protocols for powerful models</li>
+                            <li><strong>Microsoft:</strong> Created an Office of Responsible AI with cross-company authority</li>
+                            <li><strong>Startups:</strong> Many now include "Ethics by Design" in their development processes</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-purple-400">Practical Implementation</h4>
+                        <p>Steps businesses are taking based on AI Ethics Brief recommendations:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Conducting algorithmic impact assessments before deployment</li>
+                            <li>Establishing diverse review boards for AI projects</li>
+                            <li>Implementing continuous monitoring systems for live AI applications</li>
+                            <li>Creating clear channels for reporting and addressing AI-related concerns</li>
+                        </ul>
+                        
+                        <p class="mt-6">As regulations like the EU AI Act come into force, ethical AI practices are transitioning from voluntary best practices to legal requirements, making early adoption a competitive advantage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Business Blog 2 Modal -->
+    <div id="modal-business2" class="modal fixed inset-0 bg-gray-900/90 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="modal-content max-w-2xl w-full rounded-xl border border-gray-800 overflow-hidden">
+            <div class="p-1 bg-gradient-to-r from-pink-600 to-purple-600">
+                <div class="bg-gray-900 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-sm mb-2 inline-block">Business</span>
+                            <h3 class="text-2xl font-bold mb-2">Remote Work Revolution 2.0</h3>
+                            <p class="text-gray-400 text-sm">Published May 15, 2025</p>
+                        </div>
+                        <button onclick="closeModal('modal-business2')" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="prose prose-invert max-w-none">
+                        <p>The remote work landscape is undergoing its second major transformation since the pandemic began, with companies integrating advanced technologies and new management approaches to create what experts are calling "Remote Work 2.0." This evolution addresses many of the challenges that emerged during the initial shift to distributed work.</p>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-pink-400">Key Components of Remote 2.0</h4>
+                        <p>From analysis of leading business blogs and case studies:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>AI-powered productivity assistants:</strong> Handle scheduling, email triage, and routine tasks</li>
+                            <li><strong>VR collaboration spaces:</strong> Persistent virtual offices with spatial audio and avatars</li>
+                            <li><strong>Results-only work environments (ROWE):</strong> Focus on output rather than hours logged</li>
+                            <li><strong>Asynchronous-first communication:</strong> Reducing meeting overload through better documentation</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-pink-400">Benefits for Businesses</h4>
+                        <p>Companies adopting these approaches report:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>30-50% increases in productivity metrics</li>
+                            <li>60% reduction in office space costs</li>
+                            <li>Expanded talent pools with truly global hiring</li>
+                            <li>Improved employee satisfaction and retention rates</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-pink-400">Implementation Challenges</h4>
+                        <p>Common hurdles identified in business case studies:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Maintaining company culture across distributed teams</li>
+                            <li>Ensuring equitable access to technology across regions</li>
+                            <li>Adapting management styles to asynchronous workflows</li>
+                            <li>Balancing flexibility with necessary collaboration</li>
+                        </ul>
+                        
+                        <p class="mt-6">Forward-thinking companies are finding that Remote Work 2.0 isn't just about replicating office dynamics online, but fundamentally reimagining how work gets done to leverage the unique advantages of distributed teams while mitigating the challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crypto Blog 2 Modal -->
+    <div id="modal-crypto2" class="modal fixed inset-0 bg-gray-900/90 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="modal-content max-w-2xl w-full rounded-xl border border-gray-800 overflow-hidden">
+            <div class="p-1 bg-gradient-to-r from-indigo-600 to-purple-600">
+                <div class="bg-gray-900 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="px-3 py-1 bg-indigo-600/20 text-indigo-400 rounded-full text-sm mb-2 inline-block">Crypto</span>
+                            <h3 class="text-2xl font-bold mb-2">DeFi Summer 2025: New Trends</h2>
+                            <p class="text-gray-400 text-sm">Published May 10, 2025</p>
+                        </div>
+                        <button onclick="closeModal('modal-crypto2')" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="prose prose-invert max-w-none">
+                        <p>Decentralized finance (DeFi) is experiencing its most innovative period since the original "DeFi Summer" of 2020, with new protocols and approaches solving many of the sector's early challenges. The total value locked in DeFi has surpassed $200 billion, with daily transaction volumes exceeding $50 billion.</p>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-indigo-400">Emerging Trends</h4>
+                        <p>Key developments shaping the current DeFi landscape:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>AI-powered yield optimizers:</strong> Machine learning algorithms that automatically move funds between protocols to maximize returns</li>
+                            <li><strong>Cross-chain interoperability:</strong> Seamless asset transfers between Ethereum, Solana, and other major chains</li>
+                            <li><strong>Institutional-grade security:</strong> Formal verification of smart contracts and decentralized insurance pools</li>
+                            <li><strong>Regulatory-compliant protocols:</strong> KYC/AML options without compromising decentralization</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-indigo-400">Leading Projects</h4>
+                        <p>Notable platforms driving innovation:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li><strong>Ethereum (ETH):</strong> Still dominant at $2,611.77 but facing scaling challenges :cite[1]</li>
+                            <li><strong>Solana (SOL):</strong> Gaining market share at $159.94 with its high-speed, low-cost transactions</li>
+                            <li><strong>Avalanche (AVAX):</strong> Positioned at $21.33 with its sub-second finality</li>
+                            <li><strong>Polkadot (DOT):</strong> At $4.17, enabling true cross-chain composability</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mt-6 text-indigo-400">Risks and Considerations</h4>
+                        <p>Investors should be aware of:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li>Smart contract vulnerabilities despite improved security</li>
+                            <li>Regulatory uncertainty in major markets</li>
+                            <li>Potential for protocol failures during extreme market conditions</li>
+                            <li>Competition from centralized finance (CeFi) alternatives</li>
+                        </ul>
+                        
+                        <p class="mt-6">The DeFi ecosystem has matured significantly since its early days, with many projects now focusing on sustainability, risk management, and real-world utility rather than just speculative yields. This evolution suggests DeFi may be transitioning from a niche experiment to a foundational component of the global financial system.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    
+    <!-- Modal and animation scripts -->
+    <script>
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                const openModals = document.querySelectorAll('.modal:not(.opacity-0)');
+                openModals.forEach(modal => {
+                    modal.classList.add('opacity-0', 'pointer-events-none');
+                });
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Highlight current page in nav
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (currentPage === linkPage) {
+                    link.classList.remove('text-gray-400');
+                    link.classList.add('text-pink-500', 'font-medium');
+                }
+            });
+        });
+
+function createComets() {
+  const colors = ['purple', 'pink', 'blue'];
+  const container = document.body;
+  
+  // Horizontal comets
+  for (let i = 0; i < 6; i++) {
+    const comet = document.createElement('div');
+    comet.classList.add('comet', colors[i % 3]);
+    
+    comet.style.top = `${Math.random() * 100}vh`;
+    comet.style.left = `${Math.random() * 100}vw`;
+    comet.style.animationDelay = `${Math.random() * 20}s`;
+    comet.style.animationDuration = `${80 + Math.random() * 40}s`;
+    
+    container.appendChild(comet);
+  }
+  
+  // Vertical comets
+  for (let i = 0; i < 4; i++) {
+    const comet = document.createElement('div');
+    comet.classList.add('comet', 'vertical', colors[i % 3]);
+    
+    comet.style.top = `${Math.random() * 100}vh`;
+    comet.style.left = `${Math.random() * 100}vw`;
+    comet.style.animationDelay = `${Math.random() * 20}s`;
+    comet.style.animationDuration = `${100 + Math.random() * 50}s`;
+    
+    container.appendChild(comet);
+  }
+}
+
+// Initialize
+window.addEventListener('load', createComets);
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.comet').forEach(el => el.remove());
+  createComets();
+});
+
+document.addEventListener('mousemove', (e) => {
+  const comets = document.querySelectorAll('.comet');
+  comets.forEach(comet => {
+    const reactSpeed = comet.classList.contains('vertical') ? 0.03 : 0.05;
+    const x = (e.clientX / window.innerWidth - 0.5) * 40;
+    const y = (e.clientY / window.innerHeight - 0.5) * 40;
+    
+    comet.style.transform = `translate(${x}px, ${y}px)`;
+  });
+});
+
+    </script>
+    
+    <!-- Floating shapes animation styles -->
+    <style>
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-5deg); }
+        }
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(10px, 10px) rotate(10deg); }
+        }
+        .animate-float1 { animation: float1 8s ease-in-out infinite; }
+        .animate-float2 { animation: float2 10s ease-in-out infinite; }
+        .animate-float3 { animation: float3 12s ease-in-out infinite; }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</body>
+</html>

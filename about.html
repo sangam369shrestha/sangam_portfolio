@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>...sanGaM | About</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        .floating-shape {
+            position: absolute;
+            opacity: 0.15;
+            filter: blur(30px);
+            z-index: -1;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .qualification-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border-left: 4px solid #6366f1;
+        }
+        .skills-card {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(244, 114, 182, 0.1) 100%);
+            border-left: 4px solid #ec4899;
+        }
+        .character-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border-left: 4px solid #8b5cf6;
+        }
+        /* Comet Lights */
+.comet {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  filter: blur(1px);
+  z-index: -2;
+  animation: comet-trail 40s linear infinite;
+}
+
+.comet::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(168, 85, 247, 0.1), 
+    currentColor 70%, 
+    rgba(168, 85, 247, 0));
+  transform-origin: left center;
+}
+
+/* Vertical comets */
+.comet.vertical {
+  height: 300px;
+  width: 1px;
+}
+
+.comet.vertical::before {
+  width: 1px;
+  height: 300px;
+  background: linear-gradient(180deg, 
+    rgba(168, 85, 247, 0.1), 
+    currentColor 70%, 
+    rgba(168, 85, 247, 0));
+}
+
+/* Color Variations */
+.comet.purple { color: rgba(168, 85, 247, 0.8); }
+.comet.pink { color: rgba(236, 72, 153, 0.8); }
+.comet.blue { color: rgba(99, 102, 241, 0.8); }
+
+/* Animations */
+@keyframes comet-trail {
+  0% {
+    transform: translate(-100px, -100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(100vw + 100px), 
+      calc(100vh + 100px)
+    );
+    opacity: 0;
+  }
+}
+        .comet.diagonal {
+  animation: diagonal-trail 50s linear infinite;
+}
+
+@keyframes diagonal-trail {
+  0% {
+    transform: translate(-100px, -100px) rotate(45deg);
+  }
+  100% {
+    transform: translate(
+      calc(100vw + 100px), 
+      calc(100vh + 100px)
+    ) rotate(45deg);
+  }
+}
+        .comet.vertical {
+            animation: vertical-trail 50s linear infinite;
+        }
+        @keyframes vertical-trail {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px));
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <!-- Navbar will be injected here -->
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow container mx-auto px-6 py-12 md:py-20">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                About <span class="gradient-text">Me</span>
+            </h1>
+            <p class="text-xl text-gray-400">
+                A blend of technical expertise and creative vision
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+            <!-- Floating shapes background -->
+            <div class="floating-shape w-64 h-64 bg-purple-600 rounded-full -left-20 top-0 animate-float1"></div>
+            <div class="floating-shape w-48 h-48 bg-pink-600 rounded-full -right-20 bottom-0 animate-float2"></div>
+            <div class="floating-shape w-32 h-32 bg-indigo-600 rounded-lg top-1/3 left-1/4 animate-float3"></div>
+
+            <!-- Academic Qualifications -->
+            <div class="qualification-card p-8 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-purple-600 rounded-full opacity-10"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-6">Education</h2>
+                    <div class="space-y-6 text-left">
+                        <div>
+                            <h3 class="font-bold text-lg">Bachelor's in Computer Application</h3>
+                            <p class="text-purple-400">Tribhuvan University (2022-Now)</p>
+                            <p class="text-gray-400 mt-2">Specialized in Web Design, Developemnt and Prompt Engineering</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="skills-card p-8 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-pink-600 rounded-full opacity-10"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-6">Skills</h2>
+                    <div class="grid grid-cols-2 gap-4 text-left">
+                        <div>
+                            <h3 class="font-bold text-gray-300">Design</h3>
+                            <ul class="mt-2 space-y-1 text-gray-400">
+                                <li>• UI/UX Design</li>
+                                <li>• Design Systems</li>
+                                <li>• Figma/Sketch</li>
+                                <li>• Motion Design</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-300">Development</h3>
+                            <ul class="mt-2 space-y-1 text-gray-400">
+                                <li>• HTML, CSS, JS</li>
+                                <li>• PHP, MySQL</li>
+                                <li>• Wordpress, Figma</li>
+                                
+                            </ul>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-bold text-gray-300">AI Engineering</h3>
+                            <ul class="mt-2 space-y-1 text-gray-400">
+                                <li>• Prompt Engineering</li>
+                                <li>• LLM Fine-tuning</li>
+                                <li>• AI Integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Character -->
+            <div class="character-card p-8 rounded-xl transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-indigo-600 rounded-full opacity-10"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-6">Character</h2>
+                    <div class="space-y-4 text-left">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                            </div>
+                            <p class="ml-3 text-gray-400">Curious lifelong learner with 50+ online courses completed</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                            </div>
+                            <p class="ml-3 text-gray-400">Empathetic designer who prioritizes user needs</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                            </div>
+                            <p class="ml-3 text-gray-400">Detail-oriented perfectionist in execution</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                            </div>
+                            <p class="ml-3 text-gray-400">Collaborative team player with leadership experience</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full"></div>
+                            </div>
+                            <p class="ml-3 text-gray-400">Ethical technologist focused on positive impact</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    
+    <!-- Floating shapes animation (same as home page) -->
+    <style>
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-5deg); }
+        }
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(10px, 10px) rotate(10deg); }
+        }
+        .animate-float1 { animation: float1 8s ease-in-out infinite; }
+        .animate-float2 { animation: float2 10s ease-in-out infinite; }
+        .animate-float3 { animation: float3 12s ease-in-out infinite; }
+    </style>
+    <script>
+    // Highlight active link on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('header nav a');
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            
+            // Remove active classes first
+            link.classList.remove('text-pink-500', 'font-medium');
+            link.classList.add('text-gray-400');
+            
+            // Add active class to current page link
+            if (linkPage === currentPage) {
+                link.classList.remove('text-gray-400');
+                link.classList.add('text-pink-500', 'font-medium');
+            }
+            
+            // Special handling for contact button
+            if (link.classList.contains('bg-gradient-to-r') && linkPage === currentPage) {
+                link.classList.add('ring-2', 'ring-pink-500');
+            }
+        });
+        
+        // Mobile menu active state
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage) {
+                link.classList.add('text-pink-500', 'font-medium');
+            } else {
+                link.classList.remove('text-pink-500', 'font-medium');
+            }
+        });
+    });
+
+    function createComets() {
+  const colors = ['purple', 'pink', 'blue'];
+  const container = document.body;
+  
+  // Horizontal comets
+  for (let i = 0; i < 6; i++) {
+    const comet = document.createElement('div');
+    comet.classList.add('comet', colors[i % 3]);
+    
+    comet.style.top = `${Math.random() * 100}vh`;
+    comet.style.left = `${Math.random() * 100}vw`;
+    comet.style.animationDelay = `${Math.random() * 20}s`;
+    comet.style.animationDuration = `${80 + Math.random() * 40}s`;
+    
+    container.appendChild(comet);
+  }
+  
+  // Vertical comets
+  for (let i = 0; i < 4; i++) {
+    const comet = document.createElement('div');
+    comet.classList.add('comet', 'vertical', colors[i % 3]);
+    
+    comet.style.top = `${Math.random() * 100}vh`;
+    comet.style.left = `${Math.random() * 100}vw`;
+    comet.style.animationDelay = `${Math.random() * 20}s`;
+    comet.style.animationDuration = `${100 + Math.random() * 50}s`;
+    
+    container.appendChild(comet);
+  }
+}
+
+// Initialize
+window.addEventListener('load', createComets);
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.comet').forEach(el => el.remove());
+  createComets();
+});
+
+    document.addEventListener('mousemove', (e) => {
+  const comets = document.querySelectorAll('.comet');
+  comets.forEach(comet => {
+    const reactSpeed = comet.classList.contains('vertical') ? 0.03 : 0.05;
+    const x = (e.clientX / window.innerWidth - 0.5) * 40;
+    const y = (e.clientY / window.innerHeight - 0.5) * 40;
+    
+    comet.style.transform = `translate(${x}px, ${y}px)`;
+  });
+});
+</script>
+</body>
+</html>
