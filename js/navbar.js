@@ -12,10 +12,10 @@ document.getElementById('navbar-container').innerHTML = `
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-gray-400 hover:text-white transition">Home</a>
-                    <a href="about.html" class="nav-link text-gray-400 hover:text-white transition">About</a>
-                    <a href="portfolio.html" class="nav-link text-gray-400 hover:text-white transition">Portfolio</a>
-                    <a href="contact.html" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+                    <a href="/index" class="nav-link text-gray-400 hover:text-white transition">Home</a>
+                    <a href="/about" class="nav-link text-gray-400 hover:text-white transition">About</a>
+                    <a href="/portfolio" class="nav-link text-gray-400 hover:text-white transition">Portfolio</a>
+                    <a href="/contact" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
                         Contact
                     </a>
                 </div>
@@ -30,10 +30,10 @@ document.getElementById('navbar-container').innerHTML = `
             
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 space-y-4">
-                <a href="index.html" class="block nav-link text-gray-400 hover:text-white transition">Home</a>
-                <a href="about.html" class="block nav-link text-gray-400 hover:text-white transition">About</a>
-                <a href="portfolio.html" class="block nav-link text-gray-400 hover:text-white transition">Portfolio</a>
-                <a href="contact.html" class="block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium text-center w-full">
+                <a href="/index" class="block nav-link text-gray-400 hover:text-white transition">Home</a>
+                <a href="/about" class="block nav-link text-gray-400 hover:text-white transition">About</a>
+                <a href="/portfolio" class="block nav-link text-gray-400 hover:text-white transition">Portfolio</a>
+                <a href="/contact" class="block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium text-center w-full">
                     Contact
                 </a>
             </div>
