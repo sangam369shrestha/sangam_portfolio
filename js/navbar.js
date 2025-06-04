@@ -15,7 +15,6 @@ document.getElementById('navbar-container').innerHTML = `
                     <a href="index.html" class="nav-link text-gray-400 hover:text-white transition">Home</a>
                     <a href="about.html" class="nav-link text-gray-400 hover:text-white transition">About</a>
                     <a href="portfolio.html" class="nav-link text-gray-400 hover:text-white transition">Portfolio</a>
-                    // <a href="blogs.html" class="nav-link text-gray-400 hover:text-white transition">Blogs</a>
                     <a href="contact.html" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
                         Contact
                     </a>
