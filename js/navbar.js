@@ -33,7 +33,6 @@ document.getElementById('navbar-container').innerHTML = `
                 <a href="index.html" class="block nav-link text-gray-400 hover:text-white transition">Home</a>
                 <a href="about.html" class="block nav-link text-gray-400 hover:text-white transition">About</a>
                 <a href="portfolio.html" class="block nav-link text-gray-400 hover:text-white transition">Portfolio</a>
-                <a href="blogs.html" class="block nav-link text-gray-400 hover:text-white transition">Blogs</a>
                 <a href="contact.html" class="block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium text-center w-full">
                     Contact
                 </a>
