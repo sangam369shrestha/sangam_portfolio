@@ -5,7 +5,7 @@ document.getElementById('footer-container').innerHTML = `
                 <div class="mb-4 md:mb-0">  <!-- Reduced mb-6 to mb-4 -->
                     <a href="#" class="flex items-center space-x-2">
                         <div class="w-6 h-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">  <!-- Reduced size from w-8/h-8 to w-6/h-6 -->
-                            <span class="text-white font-bold text-sm">Y</span>  <!-- Reduced text-lg to text-sm -->
+                            <span class="text-white font-bold text-sm">S</span>  <!-- Reduced text-lg to text-sm -->
                         </div>
                         <span class="text-lg font-bold">Sangam Shrestha</span>  <!-- Reduced text-xl to text-lg -->
                     </a>
