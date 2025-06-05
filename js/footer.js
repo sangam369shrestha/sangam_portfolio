@@ -9,7 +9,7 @@ document.getElementById('footer-container').innerHTML = `
                         </div>
                         <span class="text-lg font-bold">Sangam Shrestha</span>  <!-- Reduced text-xl to text-lg -->
                     </a>
-                    <p class="mt-1 text-sm text-gray-400">Designer • Developer • Prompt Engineer</p>  <!-- Added text-sm -->
+                    <p class="mt-1 text-sm text-gray-400">Designer • Developer • SEO • Prompt Engineer</p>  <!-- Added text-sm -->
                 </div>
                 
                 <div class="flex space-x-4">  <!-- Reduced space-x-6 to space-x-4 -->
