@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-46QBZLY5CN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-46QBZLY5CN');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Sangam Shrestha | Designer, Developer, SEO & Prompt Engineer</title>
-    <meta name="description" content="I'm Sangam Shrestha — a passionate Designer, Developer, SEO Learner, and Prompt Engineer crafting impactful and aesthetic digital experiences." />
-   
-   
+    <meta name="description"
+        content="I'm Sangam Shrestha — a passionate Designer, Developer, SEO Learner, and Prompt Engineer crafting impactful and aesthetic digital experiences." />
+
+
     <meta property="og:title" content="Sangam Shrestha | Designer, Developer & Prompt Engineer" />
-    <meta property="og:description" content="Passionate about design, development, and AI prompt engineering. Explore my work, connect, and let's build amazing things together." />
+    <meta property="og:description"
+        content="Passionate about design, development, and AI prompt engineering. Explore my work, connect, and let's build amazing things together." />
     <meta property="og:image" content="http://sangamshrestha1.com.np/images/i.jpg" />
     <meta property="og:url" content="http://sangamshrestha1.com.np" />
     <meta property="og:type" content="website" />
@@ -17,137 +29,151 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sangam Shrestha | Designer, Developer & Prompt Engineer" />
-    <meta name="twitter:description" content="Designer • Developer • SEO • Prompt Engineer — crafting digital experiences that blend aesthetics with performance." />
+    <meta name="twitter:description"
+        content="Designer • Developer • SEO • Prompt Engineer — crafting digital experiences that blend aesthetics with performance." />
     <meta name="twitter:image" content="http://sangamshrestha1.com.np/images/i.jpg" />
 
     <link rel="icon" href="https://sangamshrestha1.com.np/images/i.jpg" type="image/jpg" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
             overflow-x: hidden;
         }
+
         .floating-shape {
             position: absolute;
             opacity: 0.2;
             filter: blur(20px);
             z-index: -1;
         }
+
         .gradient-text {
             background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
+
         /* Comet Lights */
         .comet {
-        position: fixed;
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        filter: blur(1px);
-        z-index: -2;
-        animation: comet-trail 40s linear infinite;
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            filter: blur(1px);
+            z-index: -2;
+            animation: comet-trail 40s linear infinite;
         }
 
         .comet::before {
-        content: '';
-        position: absolute;
-        width: 300px;
-        height: 1px;
-        background: linear-gradient(90deg, 
-            rgba(168, 85, 247, 0.1), 
-            currentColor 70%, 
-            rgba(168, 85, 247, 0));
-        transform-origin: left center;
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    rgba(168, 85, 247, 0.1),
+                    currentColor 70%,
+                    rgba(168, 85, 247, 0));
+            transform-origin: left center;
         }
 
         /* Vertical comets */
         .comet.vertical {
-        height: 300px;
-        width: 1px;
+            height: 300px;
+            width: 1px;
         }
 
         .comet.vertical::before {
-        width: 1px;
-        height: 300px;
-        background: linear-gradient(180deg, 
-            rgba(168, 85, 247, 0.1), 
-            currentColor 70%, 
-            rgba(168, 85, 247, 0));
+            width: 1px;
+            height: 300px;
+            background: linear-gradient(180deg,
+                    rgba(168, 85, 247, 0.1),
+                    currentColor 70%,
+                    rgba(168, 85, 247, 0));
         }
 
         /* Color Variations */
-        .comet.purple { color: rgba(168, 85, 247, 0.8); }
-        .comet.pink { color: rgba(236, 72, 153, 0.8); }
-        .comet.blue { color: rgba(99, 102, 241, 0.8); }
+        .comet.purple {
+            color: rgba(168, 85, 247, 0.8);
+        }
+
+        .comet.pink {
+            color: rgba(236, 72, 153, 0.8);
+        }
+
+        .comet.blue {
+            color: rgba(99, 102, 241, 0.8);
+        }
 
         /* Animations */
         @keyframes comet-trail {
-        0% {
-            transform: translate(-100px, -100px);
-            opacity: 0;
-        }
-        10% {
-            opacity: 1;
-        }
-        100% {
-            transform: translate(
-            calc(100vw + 100px), 
-            calc(100vh + 100px)
-            );
-            opacity: 0;
-        }
-        }
-        .comet.diagonal {
-  animation: diagonal-trail 50s linear infinite;
-}
+            0% {
+                transform: translate(-100px, -100px);
+                opacity: 0;
+            }
 
-@keyframes diagonal-trail {
-  0% {
-    transform: translate(-100px, -100px) rotate(45deg);
-  }
-  100% {
-    transform: translate(
-      calc(100vw + 100px), 
-      calc(100vh + 100px)
-    ) rotate(45deg);
-  }
-}
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(calc(100vw + 100px),
+                        calc(100vh + 100px));
+                opacity: 0;
+            }
+        }
+
+        .comet.diagonal {
+            animation: diagonal-trail 50s linear infinite;
+        }
+
+        @keyframes diagonal-trail {
+            0% {
+                transform: translate(-100px, -100px) rotate(45deg);
+            }
+
+            100% {
+                transform: translate(calc(100vw + 100px),
+                        calc(100vh + 100px)) rotate(45deg);
+            }
+        }
     </style>
 
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Sangam Shrestha",
-  "@id": "https://sangamshrestha1.com.np/#person",
-  "url": "https://sangamshrestha1.com.np",
-  "sameAs": [
-    "https://www.linkedin.com/in/sangam-shrestha-2110612b3/",
-    "https://github.com/sangam369shrestha"
-  ],
-  "jobTitle": "Designer, Developer, Prompt Engineer",
-  "description": "Sangam Shrestha is a designer, developer, SEO learner, and AI prompt engineer passionate about building digital experiences.",
-  "image": "https://sangamshrestha1.com.np/images/i.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kathmandu",
-    "addressRegion": "Bagmati Province",
-    "addressCountry": "NP"
-  }
-}
-</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sangam Shrestha",
+        "@id": "https://sangamshrestha1.com.np/#person",
+        "url": "https://sangamshrestha1.com.np",
+        "sameAs": [
+            "https://www.linkedin.com/in/sangam-shrestha-2110612b3/",
+            "https://github.com/sangam369shrestha"
+        ],
+        "jobTitle": "Designer, Developer, Prompt Engineer",
+        "description": "Sangam Shrestha is a designer, developer, SEO learner, and AI prompt engineer passionate about building digital experiences.",
+        "image": "https://sangamshrestha1.com.np/images/i.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kathmandu",
+            "addressRegion": "Bagmati Province",
+            "addressCountry": "NP"
+        }
+    }
+    </script>
 
-</script>
+
 
 
 
 </head>
+
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
     <!-- Navbar will be injected here -->
     <div id="navbar-container"></div>
@@ -156,25 +182,25 @@
         <div class="flex flex-col md:flex-row items-center justify-between gap-12">
             <!-- Left Side - Profile Photo -->
             <!-- Replace the existing image div with this -->
-<div class="w-full md:w-1/2 flex justify-center relative">
-  <div class="relative">
-    <div class="absolute -inset-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-75"></div>
-    <img src="https://sangamshrestha1.com.np/images/i.jpg" 
-     alt="Sangam Shrestha" 
-     class="relative w-80 h-80 md:w-90 md:h-90 rounded-2xl object-cover border-4 border-gray-800 z-10
-            hover:scale-105 transition-transform duration-300">
+            <div class="w-full md:w-1/2 flex justify-center relative">
+                <div class="relative">
+                    <div
+                        class="absolute -inset-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-75">
+                    </div>
+                    <img src="https://sangamshrestha1.com.np/images/i.jpg" alt="Sangam Shrestha" class="relative w-80 h-80 md:w-90 md:h-90 rounded-2xl object-cover border-4 border-gray-800 z-10
+                        hover:scale-105 transition-transform duration-300">
 
-  </div>
-  
-  <!-- Floating shapes (keep existing) -->
-  <div class="floating-shape w-32 h-32 bg-purple-500 rounded-full -left-10 top-20 animate-float1"></div>
-  <div class="floating-shape w-40 h-40 bg-pink-600 rounded-full -right-10 bottom-10 animate-float2"></div>
-  <div class="floating-shape w-24 h-24 bg-indigo-600 rounded-lg top-1/2 left-1/4 animate-float3"></div>
-</div>
+                </div>
+
+                <!-- Floating shapes (keep existing) -->
+                <div class="floating-shape w-32 h-32 bg-purple-500 rounded-full -left-10 top-20 animate-float1"></div>
+                <div class="floating-shape w-40 h-40 bg-pink-600 rounded-full -right-10 bottom-10 animate-float2"></div>
+                <div class="floating-shape w-24 h-24 bg-indigo-600 rounded-lg top-1/2 left-1/4 animate-float3"></div>
+            </div>
 
             <!-- Right Side - Introduction -->
             <div class="w-full md:w-1/2 space-y-6">
-               <h1 class="text-4xl md:text-5xl font-bold">
+                <h1 class="text-4xl md:text-5xl font-bold">
                     Hi, I'm <span class="gradient-text">Sangam Shrestha</span>
                 </h1>
                 <h2 class="text-2xl md:text-3xl font-semibold text-gray-300">
@@ -182,15 +208,18 @@
                 </h2>
                 <p class="text-lg text-gray-400 leading-relaxed">
                     I design and develop digital experiences that are both visually engaging and technically sound.
-                    With a growing foundation in SEO, a strong grasp of full-stack development, and experience in prompt engineering,
+                    With a growing foundation in SEO, a strong grasp of full-stack development, and experience in prompt
+                    engineering,
                     I aim to create solutions that are discoverable, scalable, and meaningful.
                 </p>
 
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="contact.html" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+                    <a href="contact.html"
+                        class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
                         Get In Touch
                     </a>
-                    <a href="portfolio.html" class="px-6 py-3 border border-gray-700 rounded-full font-medium hover:bg-gray-800 transition-all duration-300">
+                    <a href="portfolio.html"
+                        class="px-6 py-3 border border-gray-700 rounded-full font-medium hover:bg-gray-800 transition-all duration-300">
                         View My Work
                     </a>
                 </div>
@@ -204,73 +233,106 @@
     <!-- JavaScript -->
     <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
-    
+
     <script>
         function createComets() {
-  const colors = ['purple', 'pink', 'blue'];
-  const container = document.body;
-  
-  // Horizontal comets
-  for (let i = 0; i < 6; i++) {
-    const comet = document.createElement('div');
-    comet.classList.add('comet', colors[i % 3]);
-    
-    comet.style.top = `${Math.random() * 100}vh`;
-    comet.style.left = `${Math.random() * 100}vw`;
-    comet.style.animationDelay = `${Math.random() * 20}s`;
-    comet.style.animationDuration = `${80 + Math.random() * 40}s`;
-    
-    container.appendChild(comet);
-  }
-  
-  // Vertical comets
-  for (let i = 0; i < 4; i++) {
-    const comet = document.createElement('div');
-    comet.classList.add('comet', 'vertical', colors[i % 3]);
-    
-    comet.style.top = `${Math.random() * 100}vh`;
-    comet.style.left = `${Math.random() * 100}vw`;
-    comet.style.animationDelay = `${Math.random() * 20}s`;
-    comet.style.animationDuration = `${100 + Math.random() * 50}s`;
-    
-    container.appendChild(comet);
-  }
-}
+            const colors = ['purple', 'pink', 'blue'];
+            const container = document.body;
 
-// Initialize
-window.addEventListener('load', createComets);
-window.addEventListener('resize', () => {
-  document.querySelectorAll('.comet').forEach(el => el.remove());
-  createComets();
-});
-document.addEventListener('mousemove', (e) => {
-  const comets = document.querySelectorAll('.comet');
-  comets.forEach(comet => {
-    const reactSpeed = comet.classList.contains('vertical') ? 0.03 : 0.05;
-    const x = (e.clientX / window.innerWidth - 0.5) * 40;
-    const y = (e.clientY / window.innerHeight - 0.5) * 40;
-    
-    comet.style.transform = `translate(${x}px, ${y}px)`;
-  });
-});
+            // Horizontal comets
+            for (let i = 0; i < 6; i++) {
+                const comet = document.createElement('div');
+                comet.classList.add('comet', colors[i % 3]);
+
+                comet.style.top = `${Math.random() * 100}vh`;
+                comet.style.left = `${Math.random() * 100}vw`;
+                comet.style.animationDelay = `${Math.random() * 20}s`;
+                comet.style.animationDuration = `${80 + Math.random() * 40}s`;
+
+                container.appendChild(comet);
+            }
+
+            // Vertical comets
+            for (let i = 0; i < 4; i++) {
+                const comet = document.createElement('div');
+                comet.classList.add('comet', 'vertical', colors[i % 3]);
+
+                comet.style.top = `${Math.random() * 100}vh`;
+                comet.style.left = `${Math.random() * 100}vw`;
+                comet.style.animationDelay = `${Math.random() * 20}s`;
+                comet.style.animationDuration = `${100 + Math.random() * 50}s`;
+
+                container.appendChild(comet);
+            }
+        }
+
+        // Initialize
+        window.addEventListener('load', createComets);
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.comet').forEach(el => el.remove());
+            createComets();
+        });
+        document.addEventListener('mousemove', (e) => {
+            const comets = document.querySelectorAll('.comet');
+            comets.forEach(comet => {
+                const reactSpeed = comet.classList.contains('vertical') ? 0.03 : 0.05;
+                const x = (e.clientX / window.innerWidth - 0.5) * 40;
+                const y = (e.clientY / window.innerHeight - 0.5) * 40;
+
+                comet.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
     </script>
     <!-- Floating shapes animation -->
     <style>
         @keyframes float1 {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
+
         @keyframes float2 {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(20px) rotate(-5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(20px) rotate(-5deg);
+            }
         }
+
         @keyframes float3 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(10px, 10px) rotate(10deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(10px, 10px) rotate(10deg);
+            }
         }
-        .animate-float1 { animation: float1 8s ease-in-out infinite; }
-        .animate-float2 { animation: float2 10s ease-in-out infinite; }
-        .animate-float3 { animation: float3 12s ease-in-out infinite; }
+
+        .animate-float1 {
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .animate-float2 {
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .animate-float3 {
+            animation: float3 12s ease-in-out infinite;
+        }
     </style>
 </body>
+
 </html>
