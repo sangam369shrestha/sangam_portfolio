@@ -14,15 +14,11 @@ document.getElementById('footer-container').innerHTML = `
                 
                 <div class="flex space-x-4">  <!-- Reduced space-x-6 to space-x-4 -->
                     
-                    <a href="https://github.com/sangam369shrestha" target="_blank" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-github text-lg"></i>
-                    </a>
+                  
                     <a href="https://www.linkedin.com/in/sangam-shrestha-2110612b3/" target="_blank" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-linkedin text-lg"></i>
                     </a>
-                    <a href="https://dribbble.com/sangam_01" target="_blank" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-dribbble text-lg"></i>
-                    </a>
+                 
                 </div>
             </div>
             
