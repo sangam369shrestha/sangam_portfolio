@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /portfolio
+
+Sitemap: https://sangamshrestha1.com.np/sitemap.xml
