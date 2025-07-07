@@ -1,39 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-        <loc>https://sangamshrestha1.com.np/sangam_portfolio-main/about.html</loc>
+        <loc>https://sangamshrestha1.com.np/</loc>
         <lastmod>2025-06-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>1</priority>
     </url>
 <url>
-        <loc>https://sangamshrestha1.com.np/sangam_portfolio-main/blogs.html</loc>
+        <loc>https://sangamshrestha1.com.np/blogs/</loc>
         <lastmod>2025-06-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
 <url>
-        <loc>https://sangamshrestha1.com.np/sangam_portfolio-main/contact.html</loc>
+        <loc>https://sangamshrestha1.com.np/about/</loc>
         <lastmod>2025-06-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
 <url>
-        <loc>https://sangamshrestha1.com.np/sangam_portfolio-main/index.html</loc>
+        <loc>https://sangamshrestha1.com.np/contact/</loc>
         <lastmod>2025-06-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.6</priority>
     </url>
 <url>
-        <loc>https://sangamshrestha1.com.np/sangam_portfolio-main/portfolio.html</loc>
+        <loc>https://sangamshrestha1.com.np//Blogs/get_traffic/</loc>
         <lastmod>2025-06-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-<url>
-        <loc>https://sangamshrestha1.com.np/sangam_portfolio-main/Blogs/get_traffic.html</loc>
-        <lastmod>2025-06-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
 </urlset>
